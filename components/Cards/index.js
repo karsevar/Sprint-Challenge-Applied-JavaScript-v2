@@ -30,12 +30,23 @@ function cardMarkup(cardElement) {
 	// create html elements:
 	const card = document.createElement('div');
 	const headLine = document.createElement('div');
-	const authorContainer = document.createElement('author');
+	const authorContainer = document.createElement('div');
 	const imgContainer = document.createElement('div');
 	const authorImage = document.createElement('img');
 	const authorName = document.createElement('span');
 
 	// Assign class names:
+	card.className = 'card';
+	headLine.className = 'headline';
+	authorContainer.className = 'author';
+	imgContainer.className = 'img-container';
+
+	// Assign text content and attributes:
+	authorImage.src = cardElement.authorPhoto;
+	headLine.textContent = cardElement.headline;
+	authorName.textContent = `By ${cardElement.authorName}`;
+
+	// assembling html tree structure:
 	card.appendChild(headLine);
 	card.appendChild(authorContainer);
 
@@ -48,4 +59,12 @@ function cardMarkup(cardElement) {
 
 }
 
-console.log(cardMarkup());
+// function markup test with one object:
+const testObject = {
+	authorName: "FIDO WALKSALOT",
+	authorPhoto: "./assets/fido.jpg",
+	headline: "Bootstrap 5: Get a Sneak Peak at all the New Features"
+};
+
+console.log(cardMarkup(testObject));
+// function test was a success! 
