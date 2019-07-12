@@ -20,7 +20,7 @@ function Header() {
 	// appending class names to markup:
 	header.className = 'header';
 	date.className = 'date';
-	lambdaHeader.className = 'temp';
+	temp.className = 'temp';
 
 	// Creating html structure:
 	header.appendChild(date);
