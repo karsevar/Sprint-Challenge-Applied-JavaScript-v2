@@ -8,12 +8,39 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
+// find the parent of the topic div layers:
+const topics = document.querySelector('.topics');
+
+// The axios call to get the topic data from the server:
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
 	.then(response => {
-		console.log(response);
+		console.log(response.data.topics);
+
+		const topicsArray = response.data.topics;
+
+		const topicsMarkupArray = topicMarkup(topicsArray);
+
+		console.log(topicsMarkupArray); 
 	})
 
 	.catch(error => {
 		console.log('Response not found', error);
 	})
+
+// html markup function:
+
+function topicMarkup(topic) {
+
+	// create html div markup for each topic:
+	const topicDiv = document.createElement('div');
+
+	// append className:
+	topicDiv.className = 'topic';
+
+	// create the text content:
+	topicDiv.textContent = topic;
+
+	return topicDiv;
+}
+
