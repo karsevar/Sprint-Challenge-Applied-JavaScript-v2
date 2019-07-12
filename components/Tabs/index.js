@@ -10,6 +10,7 @@
 
 // find the parent of the topic div layers:
 const topics = document.querySelector('.topics');
+console.log(topics);
 
 // The axios call to get the topic data from the server:
 
@@ -19,9 +20,11 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
 
 		const topicsArray = response.data.topics;
 
-		const topicsMarkupArray = topicMarkup(topicsArray);
+		const topicsMarkupArray = topicsArray.map(topic => topicMarkup(topic));
 
-		console.log(topicsMarkupArray); 
+		console.log(topicsMarkupArray); // topicMarkup returns div layers.
+
+		topicsMarkupArray.forEach(topic => topics.appendChild(topic));
 	})
 
 	.catch(error => {
