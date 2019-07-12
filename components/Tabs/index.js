@@ -39,7 +39,7 @@ function topicMarkup(topic) {
 	const topicDiv = document.createElement('div');
 
 	// append className:
-	topicDiv.className = 'topic';
+	topicDiv.className = 'tab';
 
 	// create the text content:
 	topicDiv.textContent = topic;
