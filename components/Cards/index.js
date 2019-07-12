@@ -18,8 +18,12 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
+// selecting parent container:
+const cardsContainer = document.querySelector('.cards-container');
+
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 	.then(result => {
+		console.log(result);
 		const articleCategories = result.data.articles;
 		const articlesAll = []
 		for (category in articleCategories) {
@@ -28,8 +32,8 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 		// console.log(articlesAll);
 		// All of the articles are all in a single array called articlesAll.
 
-		// 
-		
+		// now I can convert all of the data into html markup and append it to the parent container.
+		articlesAll.forEach(article => cardsContainer.appendChild(cardMarkup(article)));
 	})
 	.catch(error => {
 		console.log('Can\'t find server try again later', error);

@@ -30,7 +30,7 @@ function Header() {
 	// Adding text content:
 	date.textContent = 'SMARCH 28, 2019';
 	lambdaHeader.textContent = 'Lambda Times';
-	temp.textContent = '98 degrees';
+	temp.textContent = '98°';
 
 	return header;
 
