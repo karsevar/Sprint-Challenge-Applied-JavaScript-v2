@@ -23,12 +23,14 @@ const cardsContainer = document.querySelector('.cards-container');
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 	.then(result => {
-		console.log(result);
+		// console.log(result);
+
 		const articleCategories = result.data.articles;
 		const articlesAll = []
 		for (category in articleCategories) {
 			articleCategories[category].forEach(article => articlesAll.push(article));
 		}
+		
 		// console.log(articlesAll);
 		// All of the articles are all in a single array called articlesAll.
 
