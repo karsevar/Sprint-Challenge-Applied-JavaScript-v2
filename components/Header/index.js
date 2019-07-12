@@ -35,3 +35,9 @@ function Header() {
 	return header;
 
 }
+
+// selecting .headerContainer parent;
+const headerContainer = document.querySelector('.header-container');
+
+// appending Header() markup function return elements to .header-container
+headerContainer.appendChild(Header());
