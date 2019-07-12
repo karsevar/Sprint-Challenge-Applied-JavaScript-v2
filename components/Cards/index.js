@@ -20,7 +20,16 @@
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 	.then(result => {
-		console.log(result);
+		const articleCategories = result.data.articles;
+		const articlesAll = []
+		for (category in articleCategories) {
+			articleCategories[category].forEach(article => articlesAll.push(article));
+		}
+		// console.log(articlesAll);
+		// All of the articles are all in a single array called articlesAll.
+
+		// 
+		
 	})
 	.catch(error => {
 		console.log('Can\'t find server try again later', error);
@@ -60,11 +69,11 @@ function cardMarkup(cardElement) {
 }
 
 // function markup test with one object:
-const testObject = {
-	authorName: "FIDO WALKSALOT",
-	authorPhoto: "./assets/fido.jpg",
-	headline: "Bootstrap 5: Get a Sneak Peak at all the New Features"
-};
+// const testObject = {
+// 	authorName: "FIDO WALKSALOT",
+// 	authorPhoto: "./assets/fido.jpg",
+// 	headline: "Bootstrap 5: Get a Sneak Peak at all the New Features"
+// };
 
-console.log(cardMarkup(testObject));
+// console.log(cardMarkup(testObject));
 // function test was a success! 
