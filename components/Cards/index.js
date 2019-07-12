@@ -25,3 +25,27 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 	.catch(error => {
 		console.log('Can\'t find server try again later', error);
 	})
+
+function cardMarkup(cardElement) {
+	// create html elements:
+	const card = document.createElement('div');
+	const headLine = document.createElement('div');
+	const authorContainer = document.createElement('author');
+	const imgContainer = document.createElement('div');
+	const authorImage = document.createElement('img');
+	const authorName = document.createElement('span');
+
+	// Assign class names:
+	card.appendChild(headLine);
+	card.appendChild(authorContainer);
+
+	authorContainer.appendChild(imgContainer);
+	authorContainer.appendChild(authorName);
+
+	imgContainer.appendChild(authorImage);
+
+	return card; 
+
+}
+
+console.log(cardMarkup());
